@@ -16,48 +16,20 @@
       crossorigin="anonymous"
     />
 
-    <title>Link Builder</title>
+    <title>WebPage Debug</title>
   </head>
 
   <body>
     <div class="container">
-      <h1>Link Builder</h1>
-      <div class="card">
-        <div class="card-header">
-          Input URL String
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="url-string"
-                aria-describedby=""
-                placeholder="e.g. https://github.com/abeyuya/link-builder"
-              />
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="card" style="margin-top: 50px;">
-        <div class="card-header">
-          Output
-        </div>
-        <div class="card-body">
-          <a id="url-link" target="_blank"></a>
-        </div>
-      </div>
+      <h1>WebPage Debug</h1>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="./link-builder.html">Link Builder</a>
+        </li>
+        <li class="list-group-item">
+          <a href="./storage-viewer.html">Storage Viewer</a>
+        </li>
+      </ul>
     </div>
-    <script>
-      const input = document.getElementById("url-string");
-      const output = document.getElementById("url-link");
-
-      input.addEventListener("input", e => {
-        const { value } = e.target;
-        output.textContent = value;
-        output.href = value;
-      });
-    </script>
   </body>
 </html>

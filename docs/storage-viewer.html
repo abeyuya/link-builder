@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>Storage Viewer</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Storage Viewer</h1>
+      <div class="card">
+        <div class="card-header">
+          Local Storage
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">key</th>
+                <th scope="col">value</th>
+              </tr>
+            </thead>
+            <tbody id="local-storage"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 50px;">
+        <div class="card-header">
+          Session Storage
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">key</th>
+                <th scope="col">value</th>
+              </tr>
+            </thead>
+            <tbody id="session-storage"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <hr />
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="./link-builder.html">Link Builder</a>
+        </li>
+        <li class="list-group-item">
+          <a href="./storage-viewer.html">Storage Viewer</a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const localStorageTarget = document.getElementById("local-storage");
+      const localStorageTr = Object.keys(localStorage)
+        .map(key => {
+          const value = localStorage.getItem(key);
+          return `
+          <tr>
+            <td><p class="text-break">${key}</p></td>
+            <td><p class="text-break">${value}</p></td>
+          </tr>
+        `;
+        })
+        .join("");
+      localStorageTarget.insertAdjacentHTML("afterbegin", localStorageTr);
+
+      const sessionStorageTarget = document.getElementById("session-storage");
+      const sessionStorageTr = Object.keys(sessionStorage)
+        .map(key => {
+          const value = sessionStorage.getItem(key);
+          return `
+          <tr>
+            <td>${key}</td>
+            <td>${value}</td>
+          </tr>
+        `;
+        })
+        .join("");
+      sessionStorageTarget.insertAdjacentHTML("afterbegin", sessionStorageTr);
+    </script>
+  </body>
+</html>

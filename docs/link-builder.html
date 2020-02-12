@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <title>Link Builder</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Link Builder</h1>
+      <div class="card">
+        <div class="card-header">
+          Input URL String
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="url-string"
+                aria-describedby=""
+                placeholder="e.g. https://github.com/abeyuya/link-builder"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 50px;">
+        <div class="card-header">
+          Output
+        </div>
+        <div class="card-body">
+          <a id="url-link" target="_blank"></a>
+        </div>
+      </div>
+
+      <hr />
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="./link-builder.html">Link Builder</a>
+        </li>
+        <li class="list-group-item">
+          <a href="./storage-viewer.html">Storage Viewer</a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const input = document.getElementById("url-string");
+      const output = document.getElementById("url-link");
+
+      input.addEventListener("input", e => {
+        const { value } = e.target;
+        output.textContent = value;
+        output.href = value;
+      });
+    </script>
+  </body>
+</html>
